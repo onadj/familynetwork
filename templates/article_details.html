@@ -8,7 +8,9 @@
     <hr>
     <small> By: {{ post.author.first_name }}
         {{ post.author.last_name }}<br>
-        <a href="{% url 'update_post' post.pk %}">Edit</a><br>
+        <a href="{% url 'update_post' post.pk %}" class="btn btn-secondary">Edit</a><br>
+        <br>
+        <a href="{% url 'delete_post' post.pk %}" class="btn btn-secondary">Delete</a>
     </small>
     <br>
     {{ post.body }}
