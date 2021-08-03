@@ -1,18 +1,15 @@
 {% extends "base.html" %}
+{% block title %} Login {% endblock %}
 {% block content %}
-{% if user.is_authenticated %}
 <div class="container">
-<h1>Add Post</h1>
+<h1>Login</h1>
 <div class="form-group">
 <form method="POST">
     {% csrf_token %}
     
     {{ form.as_p }}
-         <button class="btn btn-secondary">Post</button>
+         <button class="btn btn-secondary">Login</button>
 </form>
 </div>
 </div>
-{% else %}
- you need to be register to edit post
- {% endif %}
 {% endblock %}
