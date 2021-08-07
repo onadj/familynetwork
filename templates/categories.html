@@ -4,7 +4,7 @@
 <h1>{{ cats }}</h1>
 
 
-{% for post in category_posts %}
+{% for post in category.post %}
 
     <li><a href="{% url 'article-detail' post.pk %}">
 
@@ -23,11 +23,12 @@
         
         <a href="{% url 'delete_post' post.pk %}">Delete</a>
         <br>
-           {{ post.body | slice:"200" }}</li>
+        {{ post.body }} </li>
 
 
 
         {% endif %}
+       
     {% endfor %}
 
 

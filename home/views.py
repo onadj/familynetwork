@@ -21,7 +21,7 @@ class HomeView(ListView):
 
 def CategoryView(request, cats):
    category_posts = Post.objects.filter(category=cats.replace('-', ' '))
-   return render(request, 'categories.html', {'cats': cats.title().replace('-', ' '), 'category_post': category_posts})
+   return render(request, 'categories.html', {'cats': cats.title().replace('-', ' '), 'category_posts': category_posts})
 
 def CategoryListView(request):
    cat_menu_list = Category.objects.all()
