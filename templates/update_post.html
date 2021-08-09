@@ -2,6 +2,7 @@
 {% block title %}Edit Post{% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
+{% if user.id == post.author.id %}
 <div class="container">
 <h1>Edit Post</h1>
 <div class="form-group">
@@ -14,6 +15,10 @@
 </div>
 </div>
 {% else %}
+You need to be register to edit post
+{% endif %}
+{% else %}
+
  you need to be register to edit post
  {% endif %}
 {% endblock %}

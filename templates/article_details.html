@@ -6,14 +6,20 @@
 <div class="container">
     <h1>{{ post.title }}</h1>
     <hr>
-    <small> By:  {{ post.author.first_name }} 
-        {{ post.author.last_name }} 
+    <small> By:  {{ post.author.first_name }} - {{ post.author.last_name }} -
+        
         {{ post.post_date }}  <br>
+
+
+        
         {% if user.is_authenticated %}
+        {% if user.id == post.author.id %}
+
         <a href="{% url 'update_post' post.pk %}" class="btn btn-secondary">Edit</a><br>
         <br>
         <a href="{% url 'delete_post' post.pk %}" class="btn btn-secondary">Delete</a>
     </small>
+    {% endif %}
     {% endif %}
     <br>
     {{ post.body }}

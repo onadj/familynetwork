@@ -4,10 +4,8 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Post, Category
 from .forms import PostForm, EditForm
 from django.urls import reverse_lazy, reverse
+from django.http import HttpResponseRedirect
 
-# Create your views here.
-#def index(request):
-  #  return render(request, 'home/index.html')#
 
 class HomeView(ListView):
   model = Post

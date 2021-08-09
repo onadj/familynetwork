@@ -2,6 +2,7 @@
 {% block title %}Delete Post{% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
+{% if user.id == post.author.id %}
 <div class="container">
 <h1>Delete Post</h1>
 <h3>Delete: {{ post.title }}</h3>
@@ -15,6 +16,7 @@
 </form>
 </div>
 </div>
+{% endif %}
 {% else %}
  you need to be register to edit post
  {% endif %}
