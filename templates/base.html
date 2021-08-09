@@ -140,7 +140,9 @@
             {% endif %}
             {% endif %}
             {{ post.body | slice:"200" }}</li>
-
+            <br>
+            {{ post.total_likes  }}  Likes
+            <br>
         {% endfor %}
     </ul>
 </div>
