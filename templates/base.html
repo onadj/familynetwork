@@ -81,28 +81,31 @@
               {% endif %}
 
 
-{% if user.is_authenticated %}
-<li class="nav-item">
-  <a class="nav-link" href="{% url 'add_post' %}">Add Post</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="{% url 'add_category' %}">Add Category</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-</li>
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'add_post' %}">Add Post</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'add_category' %}">Add Category</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'edit_profile' %}">Edit Profile</a>
+              </li>
 
-{% else %}
-<li class="nav-item">
-  <a class="nav-link" href="{% url 'register' %}">Register</a>
-</li>
-
-<li class="nav-item">
-  <a class="nav-link" href="{% url 'login' %}">Login</a>
-</li>
-
-{% endif %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+              </li>
               
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">Register</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+              </li>
+              
+              {% endif %}
               
              
 
@@ -139,7 +142,8 @@
             <br>
             {% endif %}
             {% endif %}
-            {{ post.body | slice:"200" }}</li>
+            
+            {{ post.body|safe }}</li>
             <br>
             {{ post.total_likes  }}  Likes
             <br>

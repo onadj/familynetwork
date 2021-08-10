@@ -22,7 +22,7 @@
     {% endif %}
     {% endif %}
     <br>
-    {{ post.body }}
+    {{ post.body|safe }}
     <br>
     <br>
     <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
@@ -32,10 +32,24 @@
 
     <form action="{% url 'like_post' post.pk %}" method="POST">
         {% csrf_token %}
-        <button type="submit"  name="post_id" value="{{ post.id }}", class="btn btn-primary btn-sm">Like</button> {{ post.total_likes }} Likes
+        {% if user.is_authenticated %}
+{% if liked %}
+        <button type="submit"  name="post_id" value="{{ post.id }}", class="btn btn-danger btn-sm">Unlike</button> 
+{% else %}
+        <button type="submit"  name="post_id" value="{{ post.id }}", class="btn btn-primary btn-sm">Like </button> 
+
+ {% endif %}     <br>
+{% else %}
+<small></small><a class="nav-link" href="{% url 'login' %}">Login</a></small>
+ to Like
+{% endif %} 
+<br>
+<br>
+
+ {{ post.total_likes }} Likes
+
     </form>
-
-
+   
 </div>
 
  
