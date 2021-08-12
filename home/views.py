@@ -22,7 +22,7 @@ def LikeView(request, pk):
 class HomeView(ListView):
   model = Post
   template_name = 'home/index.html'
-  ordering = ['post_date']
+  ordering = ['-post_date']
 
 def CategoryView(request, cats):
    category_posts = Post.objects.filter(category=cats.replace('-', ' '))

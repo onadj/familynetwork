@@ -142,7 +142,9 @@
             <br>
             {% endif %}
             {% endif %}
-            
+            {% if post.image %}
+    <img src="{{ post.image.url }}" class="rounded mx-auto d-block w-100">
+{% endif %}
             {{ post.body|safe }}</li>
             <br>
             {{ post.total_likes  }}  Likes

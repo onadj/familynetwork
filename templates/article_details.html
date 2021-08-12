@@ -19,9 +19,16 @@
         <br>
         <a href="{% url 'delete_post' post.pk %}" class="btn btn-secondary">Delete</a>
     </small>
+    <br>
+    <br>
     {% endif %}
     {% endif %}
     <br>
+
+{% if post.image %}
+    <img src="{{ post.image.url }}" class="rounded mx-auto d-block w-100">
+{% endif %}
+
     {{ post.body|safe }}
     <br>
     <br>
@@ -54,3 +61,4 @@
 
  
 {% endblock %}
+
