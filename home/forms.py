@@ -18,8 +18,7 @@ class PostForm(forms.ModelForm):
             # 'author': forms.Select(attrs={'class': 'form-control'}),
              'author': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id':'onagy', 'type': 'hidden'}),
             'category': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
-            'body': forms.Textarea(attrs={'class': 'form-control'}),
-            
+            'body': forms.Textarea(attrs={'class': 'form-control'}),   
         }
 
 class EditForm(forms.ModelForm):
