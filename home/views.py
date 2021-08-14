@@ -53,8 +53,7 @@ def get_context_data(self, *args, **kwargs):
 
     liked = False
     if stuff.likes.filter(id=self.request.user.id).exists():
-        liked = True
-        
+        liked = True     
     context["cat_menu"] = cat_menu
     context["total_likes"] = total_likes
     context["liked"] = liked

@@ -5,9 +5,16 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm, Password
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from .forms import SignUpForm, EditProfileForm
-from  home.models import Profile
+from home.models import Profile
 
-class ShowProfilePageView(DetailView):
+class EditProfilePageView(generic.UpdateView):
+    model = Profile
+    template_name = 'registration/edit_profile_page.html'
+    fields = ['profile_pic', 'bio', 'facebook_url', 'instagram_url', 'pinterest_url', 'website_url']
+    success_url = reverse_lazy('home')
+
+
+class  ShowProfilePageView(DetailView):
     model = Profile
     template_name = 'registration/user_profile.html'
 
