@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="container">
+<h1>Create Profile Page</h1>
+<div class="form-group">
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+   
+    {{ form.as_p }}
+         <button class="btn btn-secondary">Create Profile Page</button>
+</form>
+</div>
+</div>
+
+
+{% else %}
+ you need to be register to edit post
+ {% endif %}
+{% endblock %}
