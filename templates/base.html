@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+<<<<<<< HEAD
   {% block meta %}
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta charset="utf-8">
@@ -36,11 +37,45 @@
 
 
   <title>{% block title %}Family Network {% endblock %}</title>
+=======
+    {% block meta %}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% endblock %}
+
+    {% block extra_meta %}
+    {% endblock %}
+
+    {% block corecss %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+
+
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% endblock %}
+
+    {% block extra_css %}
+    {% endblock %}
+
+    {% block corejs %}
+ 
+  
+    {% endblock %}
+
+    {% block extra_js %}
+    {% endblock %}
+
+
+    <title>{% block title %}Family Network {% endblock %}</title>
+>>>>>>> 7895abcb76ce89a464db2b9b7d3fdc8909a9cf94
 </head>
 
 <body>
 
 
+<<<<<<< HEAD
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'home' %}">Family Network</a>
@@ -48,6 +83,37 @@
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+=======
+ 
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home' %}">Family Network</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+           <!--Category menu Code -->
+           {% if cat_menu %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-target" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Categories
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                  {% for item in cat_menu %}
+                  <li><a class="dropdown-item" href="{% url 'category' item|slugify %}">{{ item }}</a></li><br>
+                  {% endfor %}
+
+                  
+                 
+                </ul>
+              </li>
+              {% else %}
+>>>>>>> 7895abcb76ce89a464db2b9b7d3fdc8909a9cf94
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -65,15 +131,42 @@
               {% endfor %}
 
 
+<<<<<<< HEAD
 
             </ul>
           </li>
           {% else %}
+=======
+              {% if user.is_authenticated %}
+
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'add_post' %}">Add Post</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'add_category' %}">Add Category</a>
+              </li>
+
+
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Profile</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'show_profile_page' user.profile.id %}">Show Profile Page</a></li>
+                  <li><a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Settings</a></li>
+                  <li><a class="dropdown-item" href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile Page</a></li>
+                  
+                  
+                </ul>
+              </li>
+
+>>>>>>> 7895abcb76ce89a464db2b9b7d3fdc8909a9cf94
 
 
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -109,6 +202,19 @@
 
 {% if user.profile.id %}
               <li><a class="dropdown-item" href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile Page</a>
+=======
+            
+
+
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+              </li>
+              
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">Register</a>
+>>>>>>> 7895abcb76ce89a464db2b9b7d3fdc8909a9cf94
               </li>
               <li><a class="dropdown-item" href="{% url 'show_profile_page' user.profile.id %}">Show Profile Page</a>
               </li>
@@ -207,6 +313,7 @@
   {% endblock %}
 
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
 
 </html>
