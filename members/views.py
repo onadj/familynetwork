@@ -7,7 +7,6 @@ from django.urls import reverse_lazy
 from .forms import SignUpForm, EditProfileForm, ProfilePageForm
 from home.models import Profile
 
-<<<<<<< HEAD
 class CreateProfilePageView(CreateView):
     model = Profile
     form_class = ProfilePageForm
@@ -21,22 +20,12 @@ class CreateProfilePageView(CreateView):
 class EditProfilePageView(generic.UpdateView):
     model = Profile
     template_name = 'registration/edit_profile_page.html'
-    fields = ['profile_pic', 'bio', 'facebook_url', 'instagram_url', 'pinterest_url', 'website_url']
-    success_url = reverse_lazy('home')
-
-
-class  ShowProfilePageView(DetailView):
-=======
-class EditProfilePageView(generic.UpdateView):
-    model = Profile
-    template_name = 'registration/edit_profile_page.html'
     fields = ['bio', 'profile_pic', 'facebook_url', 'instagram_url', 'pinterest_url', 'website_url']
     success_url = reverse_lazy('home')
 
 
 
 class ShowProfilePageView(DetailView):
->>>>>>> 7895abcb76ce89a464db2b9b7d3fdc8909a9cf94
     model = Profile
     template_name = 'registration/user_profile.html'
 
